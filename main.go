@@ -21,6 +21,4 @@ func main() {
 	go site.Run(cfg, repository)
 	go mobile.Run(cfg, repository)
 	monitor.Run(cfg)
-
-	//Test change
 }
