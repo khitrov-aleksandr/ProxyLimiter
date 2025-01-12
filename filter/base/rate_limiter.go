@@ -1,4 +1,4 @@
-package util
+package base
 
 import "github.com/khitrov-aleksandr/proxyguard/repository"
 
@@ -10,7 +10,7 @@ func NewRateLimiter(r repository.Repository) *RateLimiter {
 	return &RateLimiter{r}
 }
 
-func (rl *RateLimiter) Check(key string, count int64, timeout int) bool {
+func (rl *RateLimiter) Attempt(key string, count int64, timeout int) bool {
 	if rl.r.Incr(key) > count {
 		return true
 	}
